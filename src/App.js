@@ -1,4 +1,4 @@
-import CourseManager from "./components/course-manager";
+import CourseManager from "./components/course-manager.js";
 import {BrowserRouter} from "react-router-dom";
 
 function App() {

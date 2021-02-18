@@ -17,4 +17,4 @@ const CourseGrid = ({courses}) =>
         </div>
     </div>
 
-export default
+export default CourseGrid
