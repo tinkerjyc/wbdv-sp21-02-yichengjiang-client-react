@@ -3,21 +3,18 @@ import {Link} from "react-router-dom";
 
 const CourseRow = (
     {
-        deleteCourse,
-        updateCourse,
         course,
-        lastModified,
-        title,
-        owner
+        deleteCourse,
+        updateCourse
     }) => {
     const [editing, setEditing] = useState(false)
-    const [newTitle, setNewTitle] = useState(title)
+    const [title, setTitle] = useState(course.title)
 
-    const saveTitle = () => {
+    const saveCourse = () => {
         setEditing(false)
         const newCourse = {
             ...course,
-            title: newTitle
+            title: title
         }
         updateCourse(newCourse)
     }
@@ -27,26 +24,39 @@ const CourseRow = (
             <td>
                 {
                     !editing &&
-                    <Link to="/courses/editor">
-                        {title}
+                    <Link to="/editor">
+                        {course.title}
                     </Link>
                 }
                 {
                     editing &&
                     <input
-                        onChange={(event) => setNewTitle(event.target.value)}
-                        value={newTitle}
-                        className="form-control"/>
+                        className="form-control"
+                        onChange={(e) => setTitle(e.target.value)}
+                        value={title}/>
                 }
             </td>
-            <td>{owner}</td>
-            <td>{lastModified}</td>
+            <td className="d-none d-sm-table-cell">{course.owner}</td>
+            <td className="d-none d-lg-table-cell">{course.lastModified}</td>
             <td>
-                <i onClick={() => deleteCourse(course)} className="fas fa-trash"></i>
-                {!editing && <i onClick={() => setEditing(true)} className="fas fa-edit"></i>}
-                {editing && <i onClick={() => saveTitle()} className="fas fa-check"></i>}
+                {
+                    editing &&
+                    <i onClick={() => saveCourse()} className="fas fa-check wbdv-green"></i>
+                }
+
+                {
+                    editing &&
+                    <i onClick={() => deleteCourse(course)} className="fa fa-times wbdv-red"
+                       aria-hidden="true"></i>
+                }
+
+                {
+                    !editing &&
+                    <i onClick={() => setEditing(true)} className="fas fa-edit wbdv-blue"></i>
+                }
+
             </td>
-        </tr>
-    )
+        </tr>)
 }
+
 export default CourseRow

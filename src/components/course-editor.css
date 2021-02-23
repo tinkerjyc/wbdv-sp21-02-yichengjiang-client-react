@@ -1,0 +1,42 @@
+.wbdv-editor-bar {
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    font-size: x-large;
+}
+
+.wbdv-editor-background-fontColor {
+    background-color: gray;
+    color:white;
+}
+
+.wbdv-editor-widget-template {
+    background-color: white;
+    width: 800px;
+    border: 1px solid gray;
+    padding: 30px;
+    margin-top: 60px;
+    margin-left: 10px;
+}
+
+.wbdv-editor-background{
+    background-color: black;
+}
+
+.wbdv-editor-button-format{
+    background-color: red;
+    color: white;
+}
+
+.wbdv-editor-padding-top{
+    padding-top: 90px;
+}
+
+.wbdv-editor-padding-right{
+    padding-left: 50px;
+}
+
+.wbdv-editor-line-height {
+    margin-bottom:30px;
+}

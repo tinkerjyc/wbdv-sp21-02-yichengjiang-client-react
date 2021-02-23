@@ -2,38 +2,50 @@ import React from 'react'
 import CourseRow from "./course-row";
 import {Link} from "react-router-dom";
 
-export default class CourseTable
-    extends React.Component {
+export default class CourseTable extends
+    React.Component {
 
     constructor(props) {
-        super(props)
-        console.log(props)
+        super(props);
     }
 
     render() {
         return(
             <div>
-                <Link to="/courses/grid">
-                    <i className="fas fa-2x fa-th float-right"></i>
-                </Link>
-                <h2>Course Table</h2>
                 <table className="table">
+                    <thead>
+                    <tr>
+                        <td>
+                            Tittle
+                        </td>
+                        <td className="d-none d-sm-table-cell">
+                            Owned by
+                        </td>
+                        <td className="d-none d-lg-table-cell">
+                            Last modified
+                        </td>
+                        <td>
+                            <i className="fas fa-folder fa-2x" aria-hidden="true"></i>
+                            <i className="fa fa-sort fa-2x" aria-hidden="true"></i>
+                            <Link to="/courses/grid">
+                                <i className="fas fa-th fa-2x"></i>
+                            </Link>
+
+
+                        </td>
+                    </tr>
+                    </thead>
                     <tbody>
-                    {/*<CourseRow title="CS1234" owner="alice" lastModified={"1/12/34"}/>*/}
-                    {/*<CourseRow title="CS2345" owner="bob"   lastModified={"2/23/24"}/>*/}
-                    {/*<CourseRow title="CS3456" owner="charlie" lastModified={"3/22/14"}/>*/}
-                    {/*<CourseRow title="CS4567" owner="dan"   lastModified={"4/12/36"}/>*/}
                     {
-                        this.props.courses.map((course, ndx) =>
+                        this.props.courses.map(course =>
                                                    <CourseRow
-                                                       updateCourse={this.props.updateCourse}
+                                                       key={course._id}
                                                        deleteCourse={this.props.deleteCourse}
-                                                       key={ndx}
+                                                       updateCourse={this.props.updateCourse}
                                                        course={course}
                                                        title={course.title}
-                                                       owner={course.owner}
                                                        lastModified={course.lastModified}
-                                                   />)
+                                                       owner={course.owner}/>)
                     }
                     </tbody>
                 </table>
