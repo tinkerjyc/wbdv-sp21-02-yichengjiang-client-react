@@ -2,40 +2,38 @@ import React from 'react'
 import CourseRow from "./course-row";
 import {Link} from "react-router-dom";
 
-export default class CourseTable extends
-    React.Component {
+export default class CourseTable
+    extends React.Component {
 
     constructor(props) {
         super(props);
     }
 
     render() {
-        return(
+        return (
             <div>
                 <table className="table">
                     <thead>
                     <tr>
-                        <td>
-                            Tittle
-                        </td>
-                        <td className="d-none d-sm-table-cell">
-                            Owned by
-                        </td>
-                        <td className="d-none d-lg-table-cell">
-                            Last modified
-                        </td>
-                        <td>
-                            <i className="fas fa-folder fa-2x" aria-hidden="true"></i>
-                            <i className="fa fa-sort fa-2x" aria-hidden="true"></i>
+                        <th className="w-25 title-width">Title</th>
+                        <th className="w-25 d-none d-md-table-cell ">Owned by</th>
+                        <th className="w-25 d-none d-lg-table-cell ">Last modified</th>
+                        <th className="w-25 items-right">
+                            <i className="fas fa-folder"></i>
+                            &nbsp;&nbsp;
+                            <i className="fas fa-sort-alpha-up-alt"></i>
+                            &nbsp;&nbsp;
                             <Link to="/courses/grid">
-                                <i className="fas fa-th fa-2x"></i>
+                                <i className="fas fa-th"></i>
                             </Link>
-
-
-                        </td>
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
+                    {/*<CourseRow title="CS5610" owner="me"/>*/}
+                    {/*<CourseRow title="CS3200" owner="you"/>*/}
+                    {/*<CourseRow title="CS5200" owner="him"/>*/}
+                    {/*<CourseRow title="CS4550" owner="she"/>*/}
                     {
                         this.props.courses.map(course =>
                                                    <CourseRow

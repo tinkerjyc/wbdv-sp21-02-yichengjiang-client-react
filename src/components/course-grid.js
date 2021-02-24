@@ -1,47 +1,42 @@
 import React from 'react'
 import CourseCard from "./course-card";
 import {Link} from "react-router-dom";
+import "./course-grid.css"
 
-const CourseGrid = ({
-                        courses,
-                        deleteCourse,
-                        updateCourse
-                    }) => {
-
-    return (<div>
+const CourseGrid = ({courses, updateCourse, deleteCourse}) =>
+    <div>
         <div className="row">
-            <div className="col-md-5 d-none d-md-block">
-                Recent Document
+            <div className="col-5 d-none d-md-block">
+                Recent Documents
             </div>
-
-            <div className="col-md-5 d-none d-md-block">
-                Order by me
+            <div className="col-4 d-none d-md-block">
+                Owned by me
+                <i className="fa fa-caret-down"></i>
             </div>
-
-            <div className="col-md-2">
-                <i className="fas fa-folder fa-2x" aria-hidden="true"></i>
-                <i className="fa fa-sort fa-2x" aria-hidden="true"></i>
+            <div className="col-md-3 icon-right">
+                <i className="fas fa-folder"></i>
+                &nbsp;&nbsp;
+                <i className="fas fa-sort-alpha-up-alt"></i>
+                &nbsp;&nbsp;
                 <Link to="/courses/table">
-                    <i className="fas fa-2x fa-list"></i>
+                    <i className="fas fa-list"></i>
                 </Link>
             </div>
         </div>
 
-        {/*<h2>Course Grid {courses.length}</h2>*/}
         <div className="row">
             {
                 courses.map(course =>
                                 <CourseCard
+                                    key={course._id}
                                     course={course}
-                                    deleteCourse={deleteCourse}
                                     updateCourse={updateCourse}
+                                    deleteCourse={deleteCourse}
+                                    title={course.title}
                                 />
                 )
             }
         </div>
-
-    </div>)
-
-}
+    </div>
 
 export default CourseGrid
