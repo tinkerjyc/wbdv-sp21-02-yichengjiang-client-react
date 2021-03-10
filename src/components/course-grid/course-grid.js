@@ -1,5 +1,5 @@
 import React from 'react'
-import CourseCard from "./course-card";
+import CourseCard from "../course-table/course-card";
 import {Link} from "react-router-dom";
 import "./course-grid.css"
 

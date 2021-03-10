@@ -1,5 +1,5 @@
-import CourseManager from "./components/course-manager.js";
-import CourseEditor from "./components/course-editor";
+import CourseManager from "./components/course-manager/course-manager.js";
+import CourseEditor from "./components/course-editor/course-editor";
 import {BrowserRouter, Route} from "react-router-dom";
 import './App.css';
 import Home from "./components/home";
