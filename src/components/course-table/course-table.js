@@ -1,5 +1,5 @@
 import React from 'react'
-import CourseRow from "../course-row/course-row";
+import CourseRow from "./course-row";
 import {Link} from "react-router-dom";
 import './course-table.css'
 

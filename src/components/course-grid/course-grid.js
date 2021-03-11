@@ -1,9 +1,9 @@
 import React from 'react'
-import CourseCard from "../course-card/course-card";
+import CourseCard from "./course-card";
 import {Link} from "react-router-dom";
 import "./course-grid.css"
 // import {deleteCourse, updateCourse} from "../../services/course-service";
-import CourseRow from "../course-row/course-row";
+import CourseRow from "../course-table/course-row";
 
 const CourseGrid = ({courses, updateCourse, deleteCourse}) =>
     <div>
