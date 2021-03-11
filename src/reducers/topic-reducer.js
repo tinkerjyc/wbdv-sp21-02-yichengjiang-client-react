@@ -4,21 +4,21 @@ const initialState = {
 
 const topicReducer = (state=initialState, action) => {
     switch (action.type) {
-        case "CREATE_TOPIC":
+        case "FIND_TOPICS_FOR_LESSON":
             return {
                 ...state,
+                topics: action.topics
+            }
+        case "CREATE_TOPIC":
+            const newState = {
                 topics: [
                     ...state.topics,
                     action.topic
                 ]
             }
-        case "FIND_TOPICS":
-            return {
-                ...state,
-                topics: action.topics
-            }
+            return newState
         case "DELETE_TOPIC":
-
+            // alert("delete the module " + action.moduleToDelete.title)
             const newState1 = {
                 topics: state.topics.filter(topic => {
                     if(topic._id === action.topicToDelete._id) {
@@ -38,6 +38,15 @@ const topicReducer = (state=initialState, action) => {
                         return m
                     }
                 })
+            }
+        case "CLEAR_TOPICS":
+            return {
+                ...state,
+                topics: []
+            }
+        case "FIND_TOPIC":
+            return {
+                topics: action.topics
             }
         default:
             return state

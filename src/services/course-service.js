@@ -34,11 +34,10 @@ export const findCourseById = (courseId) =>
     fetch(`${COURSES_URL}/${courseId}`)
         .then(response => response.json())
 
-const api = {
-    findAllCourses: findAllCourses,
-    createCourse: createCourse,
+export default {
+    findAllCourses,
     deleteCourse: deleteCourse,
-    updateCourse: updateCourse
+    createCourse,
+    updateCourse: updateCourse,
+    findCourseById
 }
-
-export default api;

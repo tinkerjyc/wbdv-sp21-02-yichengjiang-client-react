@@ -1,7 +1,9 @@
 import React from 'react'
-import CourseCard from "../course-table/course-card";
+import CourseCard from "../course-card/course-card";
 import {Link} from "react-router-dom";
 import "./course-grid.css"
+// import {deleteCourse, updateCourse} from "../../services/course-service";
+import CourseRow from "../course-row/course-row";
 
 const CourseGrid = ({courses, updateCourse, deleteCourse}) =>
     <div>
@@ -24,16 +26,18 @@ const CourseGrid = ({courses, updateCourse, deleteCourse}) =>
             </div>
         </div>
 
+
+        {/*<h2>Course Grid {courses.length}</h2>*/}
         <div className="row">
             {
                 courses.map(course =>
-                                <CourseCard
-                                    key={course._id}
-                                    course={course}
-                                    updateCourse={updateCourse}
-                                    deleteCourse={deleteCourse}
-                                    title={course.title}
-                                />
+                    <CourseCard
+                        key={course._id}
+                        course={course}
+                        updateCourse={updateCourse}
+                        deleteCourse={deleteCourse}
+                        title={course.title}
+                    />
                 )
             }
         </div>

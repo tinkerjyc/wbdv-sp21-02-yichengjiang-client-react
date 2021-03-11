@@ -1,8 +1,7 @@
 const MODULES_URL = "https://wbdv-generic-server.herokuapp.com/api/jiangyich/modules";
 const LESSONS_URL = "https://wbdv-generic-server.herokuapp.com/api/jiangyich/lessons";
 
-
-export const createLessonForModule = (moduleId, lesson) =>
+export const createLesson = (moduleId, lesson) =>
     fetch(`${MODULES_URL}/${moduleId}/lessons`, {
         method: "POST",
         body: JSON.stringify(lesson),
@@ -16,6 +15,9 @@ export const findLessonsForModule = (moduleId) =>
     fetch(`${MODULES_URL}/${moduleId}/lessons`)
         .then(response => response.json())
 
+export const findLesson = (lessonId) =>
+    fetch(`${LESSONS_URL}/${lessonId}`)
+        .then(response => response.json())
 
 export const updateLesson = (lessonId, lesson) =>
     fetch(`${LESSONS_URL}/${lessonId}`, {
@@ -33,6 +35,12 @@ export const deleteLesson = (lessonId) =>
     })
         .then(response => response.json())
 
-export default {
-    findLessonsForModule, createLessonForModule, updateLesson, deleteLesson
-}
+const api = {
+    createLesson,
+    findLessonsForModule,
+    findLesson,
+    updateLesson,
+    deleteLesson
+};
+
+export default api;

@@ -1,0 +1,28 @@
+a {
+    color: black;
+}
+
+.wbdv-padding-12px {
+    padding: 12px;
+}
+
+.plus-right {
+    text-align: right;
+}
+
+.first-plus{
+    color: rgb(255,39,0);
+}
+
+.title-icons {
+    color: rgb(66, 134, 245);
+}
+
+.bottom-plus{
+    margin: 10px;
+    color: red;
+}
+
+.bottom-home{
+    margin: 10px;
+}

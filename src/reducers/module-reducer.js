@@ -1,6 +1,3 @@
-import React, {useState} from 'react'
-
-
 const initialState = {
     modules: []
 }
@@ -17,12 +14,16 @@ const moduleReducer = (state=initialState, action) => {
                 modules: [
                     ...state.modules,
                     action.module
+                    // {
+                    //     title: "New Module",
+                    //     _id: (new Date()).getTime()
+                    // }
                 ]
             }
             return newState
         case "DELETE_MODULE":
+            // alert("delete the module " + action.moduleToDelete.title)
             const newState1 = {
-                ...state,
                 modules: state.modules.filter(module => {
                     if(module._id === action.moduleToDelete._id) {
                         return false
@@ -32,17 +33,19 @@ const moduleReducer = (state=initialState, action) => {
                 })
             }
             return newState1
-
         case "UPDATE_MODULE":
             return {
-                ...state.modules,
-                modules: state.modules.map(module => {
-                    if(module._id === action.updateModule._id) {
-                        return action.updateModule
+                modules: state.modules.map(m => {
+                    if(m._id === action.module._id) {
+                        return action.module
                     } else {
-                        return module
+                        return m
                     }
                 })
+            }
+        case "FIND_MODULE":
+            return {
+                modules: action.modules
             }
         default:
             return state

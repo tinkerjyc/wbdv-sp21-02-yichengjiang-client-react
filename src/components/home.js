@@ -1,6 +1,5 @@
 import React from 'react'
 import {Link} from "react-router-dom";
-import './home.css';
 
 export default () =>
     <>
@@ -12,8 +11,8 @@ export default () =>
             <Link to="/courses/grid" className="list-group-item">
                 Courses Grid
             </Link>
-            <Link to="/courses/editor" className="list-group-item">
-                Course Editor
-            </Link>
+            {/*<Link to="/courses/editor" className="list-group-item">*/}
+            {/*    Course Editor*/}
+            {/*</Link>*/}
         </div>
     </>
