@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import {Link, useParams} from "react-router-dom";
-import moduleReducer from "../../reducers/module-reducer";
-import lessonReducer from "../../reducers/lesson-reducer";
-import topicReducer from "../../reducers/topic-reducer";
-import widgetReducer from "../../reducers/widget-reducer";
+import moduleReducer from "../reducers/module-reducer";
+import lessonReducer from "../reducers/lesson-reducer";
+import topicReducer from "../reducers/topic-reducer";
+import widgetReducer from "../reducers/widget-reducer";
 import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import ModuleList from "./module-list";
