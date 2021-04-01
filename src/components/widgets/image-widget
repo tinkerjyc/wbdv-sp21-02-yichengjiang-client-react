@@ -1,0 +1,54 @@
+import React, {useState} from 'react'
+
+const ImageWidget = (
+    {
+        widget,
+        setWidget,
+        editing
+    }) => {
+    const [imageWidget, setImageWidget] = useState(widget);
+
+    return (
+        <div>
+            {/*<h2>Image Widget</h2>*/}
+            {
+                !editing &&
+                <img width={imageWidget.width} height={imageWidget.height} src={imageWidget.src}/>
+            }
+            {
+                editing &&
+                <div>
+                    Image URL
+                    <input
+                        onChange={(e) => {
+                            const newWidget = {...imageWidget};
+                            newWidget["src"] = e.target.value;
+                            setImageWidget(newWidget);
+                            setWidget(newWidget);
+                        }}
+                        value={imageWidget.src} className="form-control"/>
+                    Image width
+                    <input
+                        onChange={(e) => {
+                            const newWidget = {...imageWidget};
+                            newWidget["width"] = e.target.value;
+                            setImageWidget(newWidget);
+                            setWidget(newWidget);
+                        }}
+                        value={imageWidget.width} className="form-control"/>
+                    Image height
+                    <input
+                        onChange={(e) => {
+                            const newWidget = {...imageWidget};
+                            newWidget["height"] = e.target.value;
+                            setImageWidget(newWidget);
+                            setWidget(newWidget);
+                        }}
+                        value={imageWidget.height} className="form-control"/>
+                </div>
+            }
+        </div>
+    )
+}
+
+export default ImageWidget
