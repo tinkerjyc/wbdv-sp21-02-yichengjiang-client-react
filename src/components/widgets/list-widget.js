@@ -12,8 +12,6 @@ const ListWidget = (
         <div>
             {!editing ? (
                 listWidget.widgetOrder ? (
-                    // ordered
-                    //https://reactjs.org/docs/lists-and-keys.html#keys
                     <ol>
                         {
                             listWidget && listWidget.text && listWidget.text.split("\n")

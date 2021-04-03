@@ -70,14 +70,9 @@ const WidgetList = (
                                               }} value={widget.type} className="form-control">
                                                   <option value="HEADING">Heading</option>
                                                   <option value="PARAGRAPH">Paragraph</option>
-                                                  <option value="VIDEO" disabled="disabled">Video
-                                                  </option>
                                                   <option value="IMAGE">Image</option>
-                                                  <option value="LINK" disabled="disabled">Link
-                                                  </option>
                                                   <option value="LIST">List</option>
-                                                  <option value="HTML" disabled="disabled">HTML
-                                                  </option>
+
                                               </select>
                                           }
                                           {
