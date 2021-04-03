@@ -13,7 +13,6 @@ const WidgetList = (
         createWidget,
         deleteWidget,
         updateWidget,
-        //findAllWidgetsForTopic,
         findWidgetsForTopic,
         clearWidgets,
     }) => {
@@ -33,12 +32,12 @@ const WidgetList = (
             clearWidgets()
         }
     }, [topicId, moduleId, lessonId, findWidgetsForTopic, widget, setWidget, updateWidget]);
-    console.log('111: ', myWidgets);
+
     return (
         <div>
             {enableAddButton &&
              <div align="right">
-                 <i onClick={() => createWidget(topicId)} className="fas fa-plus fa-2x"></i>
+                 <i onClick={() => createWidget(topicId)} className="fas fa-plus fa-2x"/>
              </div>
             }
             <ul className="list-group">
@@ -51,15 +50,15 @@ const WidgetList = (
                                                   <i onClick={() => {
                                                       updateWidget(widget.id, widget);
                                                       setWidget({});
-                                                  }} className="fas fa-check float-right"></i>
+                                                  }} className="fas fa-check float-right"/>
                                                   <i onClick={() => deleteWidget(_widget)}
-                                                     className="fas fa-trash float-right"></i>
+                                                     className="fas fa-trash float-right"/>
                                               </>
                                           }
                                           {
                                               _widget.id !== widget.id &&
                                               <i onClick={() => setWidget(_widget)}
-                                                 className="fas fa-cog float-right"></i>
+                                                 className="fas fa-cog float-right"/>
                                           }
                                           {
                                               _widget.id === widget.id &&
@@ -149,12 +148,11 @@ const dtpm = (dispatch) => {
                     dispatch({
                                  type: "UPDATE_WIDGET",
                                  widget
-                             });
+                             })
                 });
-
         },
         createWidget: (topicId) => {
-            widgetService.createWidget(topicId, {type: "HEADING", size: 1, text: "New Widget"})
+            widgetService.createWidget(topicId, {type: "HEADING", size: 1, text: ''})
                 .then(widgetFromServer => dispatch({
                                                        type: 'CREATE_WIDGET',
                                                        widget: widgetFromServer

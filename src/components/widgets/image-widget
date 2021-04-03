@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 
 const ImageWidget = (
     {
@@ -26,7 +26,8 @@ const ImageWidget = (
                             setImageWidget(newWidget);
                             setWidget(newWidget);
                         }}
-                        value={imageWidget.src} className="form-control"/>
+                        value={imageWidget.src || ''} placeholder={"Image URL"}
+                        className="form-control"/>
                     Image width
                     <input
                         onChange={(e) => {
@@ -35,7 +36,7 @@ const ImageWidget = (
                             setImageWidget(newWidget);
                             setWidget(newWidget);
                         }}
-                        value={imageWidget.width} className="form-control"/>
+                        value={imageWidget.width || ''} className="form-control"/>
                     Image height
                     <input
                         onChange={(e) => {
@@ -44,7 +45,7 @@ const ImageWidget = (
                             setImageWidget(newWidget);
                             setWidget(newWidget);
                         }}
-                        value={imageWidget.height} className="form-control"/>
+                        value={imageWidget.height || ''} className="form-control"/>
                 </div>
             }
         </div>
