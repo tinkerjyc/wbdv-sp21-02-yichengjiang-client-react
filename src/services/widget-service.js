@@ -10,6 +10,10 @@ export const createWidget = (tid, widget) =>
     })
         .then(response => response.json())
 
+export const findAllWidgets = () =>
+    fetch(`${WIDGETS_URL}/widgets`)
+        .then(response => response.json())
+
 export const findWidgetsForTopic = (tid) =>
     fetch(`${WIDGETS_URL}/topics/${tid}/widgets`)
         .then(response => response.json())
@@ -29,6 +33,7 @@ export const deleteWidget = (wid) =>
     }).then(response => response.json());
 
 const api = {
+    findAllWidgets,
     createWidget,
     findWidgetsForTopic,
     updateWidget,
