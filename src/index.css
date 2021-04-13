@@ -23,3 +23,11 @@ code {
 .nav-pills .nav-link {
   color: #007bff;
 }
+
+.wrong {
+  color: red;
+}
+
+.correct {
+  color: green;
+}

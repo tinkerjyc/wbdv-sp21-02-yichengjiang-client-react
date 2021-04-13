@@ -40,8 +40,8 @@ class CourseManager extends React.Component {
 
     handleAddCourse = ({target}) => {
         this.setState({
-            courseName: target.value
-        })
+                          courseName: target.value
+                      })
     }
 
     addCourse = () => {
@@ -98,9 +98,9 @@ class CourseManager extends React.Component {
     }
 
     render() {
-        return(
+        return (
             <div>
-                <Route path= {["/courses/table", "/courses"]} exact={true}>
+                <Route path={["/courses/table", "/courses"]} exact={true}>
                     <div className="wbdv-sticky-top wbdv-padding-12px">
                         <div className="row">
                             <div className="col-1">
@@ -110,7 +110,9 @@ class CourseManager extends React.Component {
                                 <h4>Course Manager</h4>
                             </div>
                             <div className="col-10 col-lg-7">
-                                <input className="form-control" type="text" onChange={this.handleAddCourse} value={this.state.courseName}/>
+                                <input className="form-control" type="text"
+                                       onChange={this.handleAddCourse}
+                                       value={this.state.courseName}/>
                             </div>
                             <div className="col-1 plus-right">
                                 <i onClick={this.addCourse}
@@ -140,7 +142,9 @@ class CourseManager extends React.Component {
                                 <h4>Course Manager</h4>
                             </div>
                             <div className="col-10 col-lg-7">
-                                <input className="form-control" type="text" onChange={this.handleAddCourse} value={this.state.courseName}/>
+                                <input className="form-control" type="text"
+                                       onChange={this.handleAddCourse}
+                                       value={this.state.courseName}/>
                             </div>
                             <div className="col-1 plus-right">
                                 <i onClick={this.addCourse}
