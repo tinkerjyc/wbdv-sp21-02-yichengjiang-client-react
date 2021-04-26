@@ -1,61 +1,75 @@
 import React, {useState} from "react";
 
-const MultipleChoiceQuestion = ({question}) => {
-    const [yourAnswer, setAnswer] = useState("")
-    const [graded, setGraded] = useState(false)
+const MultipleChoiceQuestion = ({question, submit}) => {
+    const [yourAnswer, setYourAnswer] = useState("")
+    // const [submit, setSubmit] = useState(false)
+    // // update status after clicking Grade button to show the result similar to true-false
+    // const gradeYourAnswer = () => {
+    //     setSubmit(true)
+    // }
     return (
         <div>
-            <h4>
+            <h5>
                 {question.question}
+                {/*show check box if correct*/}
                 {
-                    graded &&
-                    question.correct === yourAnswer &&
-                    <i className="fas fa-check float-right correct"></i>
+                    question.correct === yourAnswer
+                    && submit
+                    && <i className="fas fa-check float-right color-green"/>
+
                 }
                 {
-                    graded &&
-                    question.correct !== yourAnswer &&
-                    <i className="fas fa-times float-right wrong"></i>
+                    question.correct !== yourAnswer
+                    && submit
+                    && <i className="fas fa-times float-right color-red"/>
                 }
-            </h4>
+            </h5>
             <ul className="list-group">
                 {
                     question.choices.map((choice) => {
                         return (
-                            <li key={choice}
-                                className={`list-group-item
-                                ${graded && question.correct === choice ? "list-group-item-success"
-                                                                        : ""}
-                                ${graded && question.correct !== choice && choice === yourAnswer
-                                  ? "list-group-item-danger" : ""}`}>
+                            <li className={`list-group-item
+                            ${(yourAnswer !== question.correct) && (choice === yourAnswer) && submit
+                              ? 'list-group-item-danger' : ''}
+                            ${(choice === question.correct) && submit ? 'list-group-item-success'
+                                                                      : ''}`}>
                                 <label>
                                     <input
                                         onClick={() => {
                                             question.answer = choice
-                                            setAnswer(choice)
+                                            console.log(question.answer)
+                                            setYourAnswer(choice)
                                         }}
                                         type="radio"
-                                        disabled={graded}
-                                        name={question._id}/> {choice}
+                                        name={question._id}
+                                        // only one attempt for grading
+                                        disabled={submit}/>
+                                    {choice}
+                                    <>
+                                        {
+                                            (question.correct === choice)
+                                            && submit
+                                            && <i className="fas fa-check float-right color-green"/>
+                                        }
+                                        {
+                                            (question.correct !== choice)
+                                            && submit
+                                            && <i className="fas fa-times float-right color-red"/>
+                                        }
+                                    </>
                                 </label>
-                                {
-                                    graded && question.correct === choice &&
-                                    <i className={"fas fa-check float-right"}></i>
-                                }
-                                {
-                                    graded && question.correct !== choice && yourAnswer === choice
-                                    &&
-                                    <i className={"fas fa-times float-right"}></i>
-                                }
                             </li>
                         )
                     })
                 }
             </ul>
-            <br/>
-            <p>
+            <h6>
                 Your answer: {yourAnswer}
-            </p>
+            </h6>
+            {/*<div className="btn btn-success"*/}
+            {/*     onClick={gradeYourAnswer}>*/}
+            {/*    Grade*/}
+            {/*</div>*/}
         </div>
     )
 }

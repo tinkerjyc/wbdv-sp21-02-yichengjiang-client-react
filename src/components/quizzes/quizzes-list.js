@@ -1,30 +1,31 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
-import quizService from "../../services/quiz-service"
+import quizService from '../../services/quiz-service'
 
 const QuizzesList = () => {
     const {courseId} = useParams();
-    const [quizzes, setQuizzes] = useState([])
+    // store local state variable
+    const [quizzes, setQuizzes] = useState([]);
+
     useEffect(() => {
         quizService.findAllQuizzes()
-            .then((res) => setQuizzes(res))
+            .then((quizzes) => {
+                setQuizzes(quizzes)
+            })
     }, [])
-    return(
-        <div>
+    return (
+        <div className="container">
             <h2>Quizzes</h2>
-            <ul className="list-group">
+            <ul className='list-group'>
                 {
                     quizzes.map((quiz) => {
-                        return(
-                            <li key={quiz._id} className="list-group-item">
-                                <Link
-                                    to={`/courses/${courseId}/quizzes/${quiz._id}`}>
+                        return (
+                            <li className="list-group-item">
+                                <Link to={`/courses/${courseId}/quizzes/${quiz._id}`}>
                                     {quiz.title}
-                                </Link>
-                                <Link
-                                    className={"btn btn-primary float-right"}
-                                    to={`/courses/${courseId}/quizzes/${quiz._id}`}>
-                                    Start
+                                    <div className="btn btn-primary float-right">
+                                        Start
+                                    </div>
                                 </Link>
                             </li>
                         )
@@ -35,4 +36,4 @@ const QuizzesList = () => {
     )
 }
 
-export default QuizzesList;
+export default QuizzesList
