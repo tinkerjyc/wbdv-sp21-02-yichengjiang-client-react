@@ -9,13 +9,13 @@ const QuizzesList = () => {
         quizService.findAllQuizzes()
             .then((res) => setQuizzes(res))
     }, [])
-    return (
+    return(
         <div>
             <h2>Quizzes</h2>
             <ul className="list-group">
                 {
                     quizzes.map((quiz) => {
-                        return (
+                        return(
                             <li key={quiz._id} className="list-group-item">
                                 <Link
                                     to={`/courses/${courseId}/quizzes/${quiz._id}`}>

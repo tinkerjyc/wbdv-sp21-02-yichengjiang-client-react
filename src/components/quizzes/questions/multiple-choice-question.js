@@ -1,8 +1,7 @@
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
 
 const MultipleChoiceQuestion = ({question}) => {
-    const [yourAnswer, setYourAnswer] = useState("")
+    const [yourAnswer, setAnswer] = useState("")
     const [graded, setGraded] = useState(false)
     return (
         <div>
@@ -32,7 +31,8 @@ const MultipleChoiceQuestion = ({question}) => {
                                 <label>
                                     <input
                                         onClick={() => {
-                                            setYourAnswer(choice)
+                                            question.answer = choice
+                                            setAnswer(choice)
                                         }}
                                         type="radio"
                                         disabled={graded}
@@ -56,12 +56,6 @@ const MultipleChoiceQuestion = ({question}) => {
             <p>
                 Your answer: {yourAnswer}
             </p>
-            {/*<p>{question.correct}</p>*/}
-            <button
-                onClick={() => setGraded(true)}
-                className={"btn btn-success"}>
-                Grade
-            </button>
         </div>
     )
 }
